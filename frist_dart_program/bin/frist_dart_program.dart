@@ -1,57 +1,86 @@
-import 'package:args/args.dart';
+void main() {
+  // Variables
+  String name = "Ali";
+  int age = 20;
+  String city = "Lahore";
 
-const String version = '0.0.1';
-
-ArgParser buildParser() {
-  return ArgParser()
-    ..addFlag(
-      'help',
-      abbr: 'h',
-      negatable: false,
-      help: 'Print this usage information.',
-    )
-    ..addFlag(
-      'verbose',
-      abbr: 'v',
-      negatable: false,
-      help: 'Show additional command output.',
-    )
-    ..addFlag('version', negatable: false, help: 'Print the tool version.');
-}
-
-void printUsage(ArgParser argParser) {
-  print('Usage: dart frist_dart_program.dart <flags> [arguments]');
-  print(argParser.usage);
-}
-
-void main(List<String> arguments) {
-  final ArgParser argParser = buildParser();
-  try {
-    final ArgResults results = argParser.parse(arguments);
-    bool verbose = false;
-
-    // Process the parsed arguments.
-    if (results.flag('help')) {
-      printUsage(argParser);
-      return;
-    }
-    if (results.flag('version')) {
-      print('frist_dart_program version: $version');
-      return;
-    }
-    if (results.flag('verbose')) {
-      verbose = true;
-    }
-
-    // Act on the arguments provided.
-    print('Positional arguments: ${results.rest}');
-    if (verbose) {
-      print('[VERBOSE] All arguments: ${results.arguments}');
-    }
-  } on FormatException catch (e) {
-    // Print usage information if an invalid argument was provided.
-    print(e.message);
-    print('');
-    printUsage(argParser);
+  // Output
+  print("Welcome $name from $city!");
+  // Control Flow
+  if (age >= 18) {
+    print("You are eligible to register.");
+  } else {
+    print("You must be 18+ to register.");
   }
+  // Collections
+  List<String> hobbies = ['Reading', 'Coding', 'Music'];
+  Set<String> subjects = {'Math', 'Science', 'Math'}; // Set removes duplicates
+  // Map for student info
+  Map<String, dynamic> student = {
+    'name': name,
+    'age': age,
+    'city': city,
+  };
+  // Functions
+  void greet(String name) {
+    print("Hello, $name!");
+  }
+  int square1(int x){
+    return x*x;
+  }
+  int square(int x) => x * x;
+  // Function Calls
+  greet(name);
+  print("Your age squared is: ${square(age)}");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// void fun( {int num=0, String name=" "}){
+//   print("sdfadsfasd $num   name $name");
+// }
+// void main(){
+//
+//
+//   // fun();
+//   //named parameters
+//   //Positional parameters
+//
+//
+//   // List <String> fruits = ['Apple', 'Banana', 'Mango'];
+//   // Map<int, List> student = {
+//   //   // 'name': 'Ali',
+//   //   // 'roll': '101',
+//   //   1: fruits
+//   // };
+//   //print(student[1]); // Ali
+//
+//
+//   // List <String> fruits = ['Apple', 'Banana', 'Mango'];
+//   // print(fruits); // Apple
+// }
