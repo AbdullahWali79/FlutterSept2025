@@ -1,16 +1,4 @@
-# card_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Card_app or Profile APP
+| First Profile App | Second Profile App | Third Profile App |
+|-------------------|--------------------|-------------------|
+| <img width="490" height="406" alt="03" src="https://github.com/user-attachments/assets/c4c44a4c-0b7c-4bbd-9d3d-5fa78fa2a57f" /> | <img width="499" height="637" alt="02" src="https://github.com/user-attachments/assets/5fe57fd6-3a3c-41b2-a09c-2afe016ffb50" /> | <img width="451" height="512" alt="01" src="https://github.com/user-attachments/assets/852fce80-9324-4832-9206-f0eb71e598d7" /> |
