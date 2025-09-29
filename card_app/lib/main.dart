@@ -6,8 +6,8 @@ class ProfileApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProfilePage(),
-      debugShowCheckedModeBanner: false,
+        home: ProfilePage(),
+        debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
   final String email = 'abdullahwale@gmail.com';
   final String phone = '+923046983794';
   final String tagline = 'Full-Stack Developer & AI Enthusiast';
-  
+
   int selectedTheme = 0; // 0: default, 1: gradient, 2: color scheme
 
   @override
@@ -45,29 +45,42 @@ class _ProfilePageState extends State<ProfilePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildGradientButton('Classic', [Colors.blue, Colors.purple], 0),
-                    _buildGradientButton('Modern', [Colors.orange, Colors.red], 1),
-                    _buildGradientButton('Creative', [Colors.green, Colors.teal], 2),
+                    _buildGradientButton('Classic', [
+                      Colors.black87,
+                      Colors.purple,
+                    ], 0),
+                    _buildGradientButton('Modern', [
+                      Colors.orange,
+                      Colors.red,
+                    ], 1),
+                    _buildGradientButton('Creative', [
+                      Colors.green,
+                      Colors.teal,
+                    ], 2),
+                    _buildGradientButton('Creative', [
+                      Colors.green,
+                      Colors.teal,
+                    ], 2),
                   ],
                 ),
                 SizedBox(height: 20),
-                
+
                 // Profile Header Card
                 _buildProfileCard(),
                 SizedBox(height: 20),
-                
+
                 // About Section Card
                 _buildAboutCard(),
                 SizedBox(height: 20),
-                
+
                 // Skills Section Card
                 _buildSkillsCard(),
                 SizedBox(height: 20),
-                
+
                 // Experience Section Card
                 _buildExperienceCard(),
                 SizedBox(height: 20),
-                
+
                 // Contact Section Card
                 _buildContactCard(),
                 SizedBox(height: 20),
@@ -122,12 +135,20 @@ class _ProfilePageState extends State<ProfilePage> {
           SizedBox(height: 15),
           Text(
             name,
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.indigo),
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+              color: Colors.indigo,
+            ),
           ),
           SizedBox(height: 5),
           Text(
             tagline,
-            style: TextStyle(fontSize: 16, color: Colors.grey[600], fontStyle: FontStyle.italic),
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.grey[600],
+              fontStyle: FontStyle.italic,
+            ),
           ),
         ],
       ),
@@ -159,14 +180,22 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 10),
               Text(
                 'About Me',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo,
+                ),
               ),
             ],
           ),
           SizedBox(height: 15),
           Text(
             'Passionate Full-Stack Developer with 10+ years of experience in creating innovative digital solutions. Specialized in AI Development, Flutter App Development, WordPress, and Python Development. I love turning complex problems into simple, beautiful, and intuitive solutions.',
-            style: TextStyle(fontSize: 16, height: 1.5, color: Colors.grey[700]),
+            style: TextStyle(
+              fontSize: 16,
+              height: 1.5,
+              color: Colors.grey[700],
+            ),
           ),
         ],
       ),
@@ -175,10 +204,22 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget _buildSkillsCard() {
     List<Map<String, dynamic>> skills = [
-      {'name': 'AI Development', 'icon': Icons.psychology, 'color': Colors.purple},
-      {'name': 'Flutter App Development', 'icon': Icons.phone_android, 'color': Colors.blue},
+      {
+        'name': 'AI Development',
+        'icon': Icons.psychology,
+        'color': Colors.purple,
+      },
+      {
+        'name': 'Flutter App Development',
+        'icon': Icons.phone_android,
+        'color': Colors.blue,
+      },
       {'name': 'WordPress', 'icon': Icons.web, 'color': Colors.green},
-      {'name': 'Python Development', 'icon': Icons.code, 'color': Colors.orange},
+      {
+        'name': 'Python Development',
+        'icon': Icons.code,
+        'color': Colors.orange,
+      },
     ];
 
     return Container(
@@ -205,7 +246,11 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 10),
               Text(
                 'Core Skills',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo,
+                ),
               ),
             ],
           ),
@@ -222,7 +267,9 @@ class _ProfilePageState extends State<ProfilePage> {
                   decoration: BoxDecoration(
                     color: skills[index]['color'].withOpacity(0.1),
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: skills[index]['color'].withOpacity(0.3)),
+                    border: Border.all(
+                      color: skills[index]['color'].withOpacity(0.3),
+                    ),
                   ),
                   child: Row(
                     children: [
@@ -283,14 +330,30 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 10),
               Text(
                 'Experience',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo,
+                ),
               ),
             ],
           ),
           SizedBox(height: 15),
-          _buildExperienceItem('Senior Flutter Developer', 'Tech Solutions Inc.', '2022 - Present'),
-          _buildExperienceItem('AI Development Specialist', 'Innovation Labs', '2021 - 2022'),
-          _buildExperienceItem('WordPress Developer', 'Digital Agency', '2020 - 2021'),
+          _buildExperienceItem(
+            'Senior Flutter Developer',
+            'Tech Solutions Inc.',
+            '2022 - Present',
+          ),
+          _buildExperienceItem(
+            'AI Development Specialist',
+            'Innovation Labs',
+            '2021 - 2022',
+          ),
+          _buildExperienceItem(
+            'WordPress Developer',
+            'Digital Agency',
+            '2020 - 2021',
+          ),
         ],
       ),
     );
@@ -309,7 +372,11 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.indigo),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: Colors.indigo,
+            ),
           ),
           Text(
             company,
@@ -317,7 +384,11 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           Text(
             period,
-            style: TextStyle(fontSize: 12, color: Colors.grey[500], fontStyle: FontStyle.italic),
+            style: TextStyle(
+              fontSize: 12,
+              color: Colors.grey[500],
+              fontStyle: FontStyle.italic,
+            ),
           ),
         ],
       ),
@@ -349,7 +420,11 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(width: 10),
               Text(
                 'Contact Information',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.indigo),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.indigo,
+                ),
               ),
             ],
           ),
@@ -378,10 +453,7 @@ class _ProfilePageState extends State<ProfilePage> {
         children: [
           Icon(icon, color: Colors.indigo, size: 24),
           SizedBox(height: 8),
-          Text(
-            label,
-            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-          ),
+          Text(label, style: TextStyle(fontSize: 12, color: Colors.grey[600])),
           SizedBox(height: 4),
           Text(
             text,
@@ -412,10 +484,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         child: Text(
           text,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -440,9 +509,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         );
       default: // Classic theme
-        return BoxDecoration(
-          color: Colors.grey[100],
-        );
+        return BoxDecoration(color: Colors.grey[100]);
     }
   }
 }

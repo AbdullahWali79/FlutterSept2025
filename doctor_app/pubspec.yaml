@@ -1,0 +1,45 @@
+name: doctor_patient_records
+description: A Flutter app for managing doctor-patient records with Google Drive integration.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # Database
+  sqflite: ^2.3.0
+  
+  # Local storage paths
+  path_provider: ^2.0.15
+  
+  # Google authentication and APIs
+  google_sign_in: ^6.1.4
+  googleapis: any
+  googleapis_auth: any
+  
+  # File handling
+  file_picker: ^5.5.0
+  image_picker: ^1.0.5
+  
+  # State management
+  provider: ^6.0.5
+  
+  # UI components
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
