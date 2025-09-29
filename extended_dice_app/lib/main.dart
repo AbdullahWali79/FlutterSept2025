@@ -31,6 +31,25 @@ class _DiceScreenState extends State<DiceScreen> {
   int diceNumber = 1;
   final TextEditingController _guessController = TextEditingController();
   String message = "";
+  
+  // Font selection
+  String selectedFont = "Default";
+  final List<Map<String, String>> fontOptions = [
+    {"name": "Default", "family": ""},
+    {"name": "Roboto", "family": "Roboto"},
+    {"name": "Open Sans", "family": "OpenSans"},
+    {"name": "Lato", "family": "Lato"},
+    {"name": "Montserrat", "family": "Montserrat"},
+    {"name": "Arial", "family": "Arial"},
+    {"name": "Times New Roman", "family": "Times New Roman"},
+    {"name": "Courier New", "family": "Courier New"},
+  ];
+
+  // Helper method to get current font family
+  String? getCurrentFontFamily() {
+    final font = fontOptions.firstWhere((font) => font["name"] == selectedFont);
+    return font["family"]!.isNotEmpty ? font["family"] : null;
+  }
 
   void rollDice() {
     setState(() {
@@ -58,7 +77,12 @@ class _DiceScreenState extends State<DiceScreen> {
 
       child: Scaffold(
         appBar: AppBar(
-          title: Text("🎲 Dice Roller"),
+          title: Text(
+            "🎲 Dice Roller",
+            style: TextStyle(
+              fontFamily: getCurrentFontFamily(),
+            ),
+          ),
           centerTitle: true,
           actions: [
             IconButton(
@@ -80,9 +104,44 @@ class _DiceScreenState extends State<DiceScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
 
+              // 🎨 Font Selection Dropdown
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.deepPurple),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: DropdownButton<String>(
+                  value: selectedFont,
+                  isExpanded: true,
+                  underline: SizedBox(),
+                  items: fontOptions.map((font) {
+                    return DropdownMenuItem<String>(
+                      value: font["name"],
+                      child: Text(
+                        "Font: ${font['name']}",
+                        style: TextStyle(
+                          fontFamily: font["family"]!.isNotEmpty ? font["family"] : null,
+                          fontSize: 16,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedFont = newValue!;
+                    });
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+
               // 📝 Input Field for Guess
               TextField(
                 controller: _guessController,
+                style: TextStyle(
+                  fontFamily: getCurrentFontFamily(),
+                ),
                 decoration: InputDecoration(
                   labelText: "Enter your guess (1-6)",
                   prefixIcon: Icon(Icons.numbers),
@@ -106,7 +165,12 @@ class _DiceScreenState extends State<DiceScreen> {
               ElevatedButton.icon(
                 onPressed: rollDice,
                 icon: Icon(Icons.casino),
-                label: Text("Roll Dice"),
+                label: Text(
+                  "Roll Dice",
+                  style: TextStyle(
+                    fontFamily: getCurrentFontFamily(),
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 ),
@@ -120,6 +184,7 @@ class _DiceScreenState extends State<DiceScreen> {
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Colors.deepPurple,
+                  fontFamily: getCurrentFontFamily(),
                 ),
               ),
             ],
