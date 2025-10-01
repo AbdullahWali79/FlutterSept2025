@@ -1,39 +1,66 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+/// The main entry point for the application.
+/// In Flutter, the `main` function is where your app starts.
 void main() {
+  // `runApp` takes the given Widget and makes it the root of the widget tree.
+  // Here, `DiceApp` is our root widget.
   runApp(DiceApp());
 }
 
+/// The root widget of the Dice Application.
+/// `DiceApp` is a `StatelessWidget` because its properties don't change over time.
+/// All its state is contained in other widgets.
 class DiceApp extends StatelessWidget {
+  // The `build` method describes the part of the user interface represented by this widget.
+  // Flutter calls this method when this widget is inserted into the tree.
   @override
   Widget build(BuildContext context) {
+    // `MaterialApp` is a predefined class in Flutter.
+    // It provides many functionalities like routing, theming, etc.
+    // It's generally the root widget of a Material Design app.
     return MaterialApp(
+      // `title` is a one-line description used by the device to identify the app.
       title: "Extended Dice App",
+      // `debugShowCheckedModeBanner` removes the "debug" banner in the top-right corner when set to false.
       debugShowCheckedModeBanner: false,
 
-      // 🌈 Theme
+      // `theme` defines the visual appearance of your application.
+      // `ThemeData` allows you to customize colors, fonts, and more.
       theme: ThemeData(
+        // `primarySwatch` defines a single color that Flutter uses to generate shades for the theme.
+        // `Colors.deepPurple` is a predefined Material color.
         primarySwatch: Colors.deepPurple,
+
+
       ),
 
+      // `home` is the widget that will be displayed first when the app starts.
+      // Here, we are setting `DiceScreen` as our home screen.
       home: DiceScreen(),
     );
   }
 }
 
+/// A screen that displays a dice and allows the user to roll it.
 class DiceScreen extends StatefulWidget {
   @override
   _DiceScreenState createState() => _DiceScreenState();
 }
 
+/// The state for the [DiceScreen] widget.
 class _DiceScreenState extends State<DiceScreen> {
+  /// The current number displayed on the dice.
   int diceNumber = 1;
+  /// Controller for the guess input field.
   final TextEditingController _guessController = TextEditingController();
+  /// Message to display to the user (e.g., result of a guess or roll).
   String message = "";
   
-  // Font selection
+  /// The currently selected font for various text elements.
   String selectedFont = "Default";
+  /// List of available font options for the user to select.
   final List<Map<String, String>> fontOptions = [
     {"name": "Default", "family": ""},
     {"name": "Roboto", "family": "Roboto"},
@@ -45,12 +72,15 @@ class _DiceScreenState extends State<DiceScreen> {
     {"name": "Courier New", "family": "Courier New"},
   ];
 
-  // Helper method to get current font family
+  /// Helper method to get the current font family string.
+  /// Returns the font family string or null if the default font is selected.
   String? getCurrentFontFamily() {
+    //The question mark ? after String in String? getCurrentFontFamily() means that this function can return either a String or null.
     final font = fontOptions.firstWhere((font) => font["name"] == selectedFont);
     return font["family"]!.isNotEmpty ? font["family"] : null;
   }
 
+  /// Rolls the dice, updates the [diceNumber], and checks the user's guess.
   void rollDice() {
     setState(() {
       diceNumber = Random().nextInt(6) + 1;
