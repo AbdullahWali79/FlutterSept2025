@@ -82,7 +82,7 @@ class _DiceScreenState extends State<DiceScreen> {
 
   /// Rolls the dice, updates the [diceNumber], and checks the user's guess.
   void rollDice() {
-    setState(() {
+    setState(() {  ///0 to 5
       diceNumber = Random().nextInt(6) + 1;
 
       // Check guess if provided
