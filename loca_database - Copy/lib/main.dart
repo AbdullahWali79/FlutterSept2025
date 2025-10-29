@@ -33,7 +33,19 @@ class _StudentInfoAppState extends State<StudentInfoApp> {
   void _loadThemePreference() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
+      /*The ?? is called the "null-aware" or "if-null" operator.
+      The ?? is used to provide a default value of false in case no theme preference is found saved on the phone.*/
       _isDarkMode = prefs.getBool('isDark') ?? false;
+      /*
+      // Longer way to do the same thing
+bool? savedValue = prefs.getBool('isDark');
+if (savedValue == null) {
+  _isDarkMode = false; // The default value
+} else {
+  _isDarkMode = savedValue;
+}
+
+       */
     });
   }
 
