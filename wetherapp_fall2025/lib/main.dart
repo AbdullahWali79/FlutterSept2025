@@ -619,6 +619,7 @@ class _WeatherIcon extends StatelessWidget {
       iconColor = Colors.purple;
     } else if (desc.contains('fog') || desc.contains('mist')) {
       iconData = Icons.blur_on_rounded;
+
       iconColor = Colors.grey;
     } else {
       iconData = Icons.wb_cloudy_rounded;
